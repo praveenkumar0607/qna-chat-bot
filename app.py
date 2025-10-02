@@ -80,7 +80,7 @@ client = OpenAI(
 # An if/elif structure cleanly separates the logic for each tool
 # CHATBOT MODE
 if app_mode == "Chatbot":
-    st.header(f"Chat with {selected_model_name}")
+    st.header(f"Chat with {selected_model_name} made by Praveen Kumar")
     # Initialize chat history in session state if it doesn't exist.
     if "messages" not in st.session_state:
         st.session_state.messages = []
@@ -145,6 +145,7 @@ elif app_mode == "Text Summarizer":
                     st.success(summary)
             except Exception as e:
                 st.error(f"An error occurred: {e}")
+
 
 
 
