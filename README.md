@@ -2,7 +2,7 @@
 
 Welcome to the **Multi-Tool AI Assistant**! This is a user-friendly web application built with Python and Streamlit that gives you access to a powerful AI model for various tasks. Whether you want to have a conversation or summarize a long article, this tool is designed to be your helpful AI companion.
 
-*(Feel free to add a screenshot of your app here!)*
+*(Feel free to use it anywhere)*
 
 ---
 
@@ -34,5 +34,17 @@ Want to run the app on your own machine? Just follow these simple steps.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/your-repository-name.git
-cd your-repository-name
+git clone https://github.com/praveenkumar0607/qna-chat-bot.git
+cd qna-chat-bot
+```
+### 2. Add you api key
+
+```base
+OPENROUTER_API_KEY="sk-or-YourSecretKeyGoesHere"
+```
+### 3. Run the Program
+
+```
+streamlit run ui.py
+```
+
