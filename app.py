@@ -2,21 +2,19 @@ import streamlit as st
 import os
 from openai import OpenAI
 from dotenv import load_dotenv
-
-# --- SETUP ---
-# Load environment variables from a .env file for local development
+# SETUP
 load_dotenv()
 
 # Set the title and icon for the browser tab, and a wide layout
 st.set_page_config(page_title="Multi-Tool AI Assistant", page_icon="🤖", layout="wide")
 
 
-# --- SIDEBAR ---
+#SIDEBAR
 with st.sidebar:
     st.title("🤖 Multi-Tool AI Assistant")
     st.markdown("---")
 
-    # --- MODE SELECTION ---
+    # MODE SELECTION
     st.subheader("Select a Tool")
     app_mode = st.radio(
         "Choose the tool you want to use:",
@@ -25,16 +23,16 @@ with st.sidebar:
     )
     st.markdown("---")
 
-    # --- MODEL SELECTION ---
+    # MODEL SELECTION
     st.subheader("Model Selection")
-    # Set the primary model to be used. Other models have been removed as requested.
+    # Set the primary model to be used.
     selected_model_name = "DeepSeek Qwen3 8B"
     st.session_state.selected_model = "deepseek/deepseek-r1-0528-qwen3-8b:free"
     st.info(f"Using model: **{selected_model_name}**")
     
     st.markdown("---")
     
-    # Conditionally display the "Clear Chat" button only in Chatbot mode
+    # Clear history for chatbot mode
     if app_mode == "Chatbot":
         if st.button("Clear Chat History", use_container_width=True):
             st.session_state.messages = []
@@ -49,7 +47,7 @@ with st.sidebar:
             """
         )
 
-# --- AUTHENTICATION & API CLIENT SETUP ---
+# AUTHENTICATION & API CLIENT SETUP
 openrouter_key = os.getenv("OPENROUTER_API_KEY")
 if not openrouter_key:
     st.error("OpenRouter API key not found! Please add it to your .env file or Streamlit secrets.")
@@ -59,12 +57,12 @@ client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
     api_key=openrouter_key,
     default_headers={
-        "HTTP-Referer": "http://localhost:8501", # Required by OpenRouter
+        "HTTP-Referer": "http://localhost:8501", 
         "X-Title": "Streamlit Multi-Tool Bot",
     },
 )
 
-# --- UI LOGIC BASED ON MODE ---
+# UI LOGIC BASED ON MODE
 
 # CHATBOT MODE
 if app_mode == "Chatbot":
@@ -130,5 +128,6 @@ elif app_mode == "Text Summarizer":
                     st.success(summary)
             except Exception as e:
                 st.error(f"An error occurred: {e}")
+
 
 
