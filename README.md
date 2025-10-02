@@ -1,4 +1,4 @@
-# 🤖 Multi-Tool AI Assistant
+# 🤖 Multi-Tool AI Assistant builit by Praveen Kumar
 
 Welcome to the **Multi-Tool AI Assistant**! This is a user-friendly web application built with Python and Streamlit that gives you access to a powerful AI model for various tasks. Whether you want to have a conversation or summarize a long article, this tool is designed to be your helpful AI companion.
 
@@ -47,4 +47,5 @@ OPENROUTER_API_KEY="sk-or-YourSecretKeyGoesHere"
 ```
 streamlit run ui.py
 ```
+
 
